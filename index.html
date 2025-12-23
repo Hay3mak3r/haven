@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26f0.png">
     <meta charset="UTF-8">
-   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hay3mak3r's Haven</title>
+    
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26f0.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            /* New Lighter Palette */
-            --bg-page: #f4f7f5;        /* Soft light gray-green */
-            --card-bg: #ffffff;        /* Crisp white cards */
-            --accent-main: #5B8266;    /* Sage Green */
-            --accent-soft: #8fb199;    /* Light Sage */
-            --text-main: #2f3e33;      /* Deep Forest for readability */
+            --bg-page: #f4f7f5;
+            --card-bg: #ffffff;
+            --accent-main: #5B8266;
+            --accent-soft: #8fb199;
+            --text-main: #2f3e33;
             --keep-yellow: #fbbc04;
         }
 
         body {
             background-color: var(--bg-page);
             color: var(--text-main);
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         /* Weather Widget */
@@ -35,32 +37,31 @@
             background: var(--card-bg);
             padding: 12px 25px;
             border-radius: 50px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid #dce3de;
             display: flex;
             align-items: center;
             gap: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
         #weather-temp { font-size: 1.4rem; font-weight: 700; color: var(--accent-main); }
         #weather-desc { font-size: 0.85rem; font-weight: 600; color: #7a8a7e; }
 
         header h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             color: var(--text-main);
-            letter-spacing: 1px;
-            margin: 10px 0 35px 0;
+            letter-spacing: 2px;
+            margin: 10px 0 30px 0;
             font-weight: 300;
+            text-transform: uppercase;
         }
 
         /* Search Bar */
         .search-container {
-            width: 90%;
+            width: 100%;
             max-width: 600px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
-
         .search-form {
             display: flex;
             background: var(--card-bg);
@@ -68,14 +69,7 @@
             border-radius: 12px;
             border: 1px solid #dce3de;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: 0.3s;
         }
-
-        .search-form:focus-within {
-            border-color: var(--accent-main);
-            box-shadow: 0 10px 30px rgba(91, 130, 102, 0.15);
-        }
-
         input[type="text"] {
             flex: 1;
             background: transparent;
@@ -85,7 +79,6 @@
             padding: 12px 20px;
             font-size: 1.1rem;
         }
-
         .search-btn {
             background: var(--accent-main);
             border: none;
@@ -96,42 +89,67 @@
             cursor: pointer;
         }
 
+        /* Bible Verse Container */
+        #bible-verse-container {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 40px;
+            text-align: center;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px dashed var(--accent-soft);
+            box-sizing: border-box;
+        }
+        #bible-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        #bible-reference {
+            font-weight: bold;
+            color: var(--accent-main);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
         /* Links Grid */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px;
-            width: 95%;
+            width: 100%;
             max-width: 900px;
         }
-
         .link-card {
             background: var(--card-bg);
             border: 1px solid #dce3de;
-            padding: 25px 15px;
+            padding: 25px 10px;
             text-align: center;
             border-radius: 16px;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-
         .link-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
             border-color: var(--accent-soft);
         }
-
-        .link-card i {
+        .link-card i, .link-card img {
             font-size: 2.2rem;
             margin-bottom: 15px;
             color: var(--accent-main);
         }
+        .link-card span { font-weight: 500; font-size: 0.9rem; }
 
-        .link-card span { font-weight: 500; font-size: 0.95rem; }
-
-        /* Custom Highlight for Keep */
+        /* Custom Colors */
         .keep-card i { color: var(--keep-yellow); }
         .keep-card:hover { border-color: var(--keep-yellow); }
     </style>
@@ -139,7 +157,7 @@
 <body>
 
     <div id="weather-widget">
-        <i class="fas fa-mountain" style="color: var(--accent-main);"></i>
+        <i class="fas fa-mountain"></i>
         <div id="weather-temp">--°F</div>
         <div id="weather-desc">Baker City, OR</div>
     </div>
@@ -153,6 +171,11 @@
             <input type="text" name="q" placeholder="Search Google..." required autofocus>
             <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
         </form>
+    </div>
+
+    <div id="bible-verse-container">
+        <div id="bible-text">Loading daily inspiration...</div>
+        <div id="bible-reference"></div>
     </div>
 
     <div class="links-grid">
@@ -176,20 +199,23 @@
             <span>AI Studio</span>
         </a>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0YdY_1hfmDUAlRqUB--3NTCAaQhIzsf2JPEBVrt2WtvV4Gg/viewform" target="_blank" class="link-card">
-            <i class="fas fa-clipboard-list"></i>
-            <span>Prompt Library</span>
+        <a href="https://www.pokemon-zone.com" target="_blank" class="link-card">
+            <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64" 
+                 style="width: 35px; height: 35px;" 
+                 onerror="this.src='https://icons.duckduckgo.com/ip3/www.pokemon-zone.com.ico'">
+            <span>Pokemon Zone</span>
         </a>
 
-<a href="https://www.pokemon-zone.com" target="_blank" class="link-card">
-    <i class="fas fa-circle-dot"></i> <span>Pokemon Zone</span>
-</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0YdY_1hfmDUAlRqUB--3NTCAaQhIzsf2JPEBVrt2WtvV4Gg/viewform" target="_blank" class="link-card">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Feedback Form</span>
+        </a>
     </div>
 
     <script>
+        // Weather Logic for Baker City
         const LAT = 44.7749;
         const LON = -117.8344;
-
         function fetchWeather() {
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&temperature_unit=fahrenheit`)
                 .then(res => res.json())
@@ -199,7 +225,24 @@
                 })
                 .catch(() => { document.getElementById('weather-temp').innerText = "ERR"; });
         }
+
+        // Bible Verse Logic (NLT)
+        function fetchBibleVerse() {
+            fetch("https://beta.ourmanna.com/api/v1/get/?format=json&order=daily&version=nlt")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('bible-text').innerText = `"${data.verse.details.text}"`;
+                    document.getElementById('bible-reference').innerText = data.verse.details.reference + " (NLT)";
+                })
+                .catch(err => {
+                    document.getElementById('bible-text').innerText = "Your word is a lamp to guide my feet and a light for my path.";
+                    document.getElementById('bible-reference').innerText = "Psalm 119:105 (NLT)";
+                });
+        }
+
+        // Run functions on load
         fetchWeather();
+        fetchBibleVerse();
     </script>
 </body>
 </html>
