@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hay3mak3r's Haven</title>
+    <title>Hay3mak3r's Trash Panda Haven</title>
     
-    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26f0.png">
-    
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99d.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-page: #f4f7f5;
-            --card-bg: #ffffff;
-            --accent-main: #5B8266;
-            --accent-soft: #8fb199;
-            --text-main: #2f3e33;
-            --keep-yellow: #fbbc04;
+            /* Trash Panda Color Palette */
+            --bg-night: #1a1a1a;        /* Deep Midnight */
+            --mask-gray: #333333;       /* Raccoon Mask Gray */
+            --fur-silver: #d1d1d1;      /* Light Fur Gray */
+            --trash-blue: #4a90e2;      /* Recycle Bin Blue */
+            --pizza-gold: #f39c12;      /* Found Pizza Gold */
+            --card-bg: #262626;         /* Soft Dark Card */
+            --text-light: #f0f0f0;
         }
 
         body {
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-night);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -32,215 +33,210 @@
             padding: 20px;
         }
 
-        /* Weather Widget */
+        /* Weather Widget - "Night Vision" Style */
         #weather-widget {
-            background: var(--card-bg);
+            background: var(--mask-gray);
             padding: 12px 25px;
             border-radius: 50px;
-            margin-bottom: 20px;
-            border: 1px solid #dce3de;
+            margin-bottom: 25px;
+            border: 2px solid var(--trash-blue);
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
         }
-        #weather-temp { font-size: 1.4rem; font-weight: 700; color: var(--accent-main); }
-        #weather-desc { font-size: 0.85rem; font-weight: 600; color: #7a8a7e; }
+        #weather-temp { font-size: 1.5rem; font-weight: bold; color: var(--trash-blue); }
+        #weather-desc { font-size: 0.9rem; color: var(--fur-silver); text-transform: uppercase; letter-spacing: 1px; }
 
         header h1 {
-            font-size: 2.2rem;
-            color: var(--text-main);
-            letter-spacing: 2px;
-            margin: 10px 0 30px 0;
-            font-weight: 300;
-            text-transform: uppercase;
+            font-size: 2.5rem;
+            color: var(--fur-silver);
+            text-shadow: 3px 3px 0px var(--mask-gray);
+            margin: 10px 0 35px 0;
+            font-weight: 900;
+            text-transform: italic;
         }
 
-        /* Search Bar */
+        /* Search Bar - Bandit Style */
         .search-container {
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 30px;
+            max-width: 650px;
+            margin-bottom: 35px;
         }
         .search-form {
             display: flex;
             background: var(--card-bg);
-            padding: 6px;
-            border-radius: 12px;
-            border: 1px solid #dce3de;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            padding: 8px;
+            border-radius: 15px;
+            border: 2px solid var(--mask-gray);
+            transition: 0.3s;
+        }
+        .search-form:focus-within {
+            border-color: var(--pizza-gold);
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.2);
         }
         input[type="text"] {
             flex: 1;
             background: transparent;
             border: none;
             outline: none;
-            color: var(--text-main);
+            color: white;
             padding: 12px 20px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         .search-btn {
-            background: var(--accent-main);
+            background: var(--pizza-gold);
             border: none;
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
+            color: var(--bg-night);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
             cursor: pointer;
+            font-size: 1.2rem;
         }
 
-        /* Bible Verse Container */
+        /* Bible Verse - "Moonlight Reflection" */
         #bible-verse-container {
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 40px;
+            max-width: 650px;
+            margin-bottom: 45px;
             text-align: center;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            border: 1px dashed var(--accent-soft);
-            box-sizing: border-box;
+            padding: 30px;
+            background: linear-gradient(145deg, #2c2c2c, #1e1e1e);
+            border-radius: 20px;
+            border-left: 5px solid var(--pizza-gold);
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
         }
         #bible-text {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            color: var(--fur-silver);
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
         #bible-reference {
             font-weight: bold;
-            color: var(--accent-main);
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            color: var(--pizza-gold);
+            letter-spacing: 2px;
         }
 
-        /* Links Grid */
+        /* Link Cards - The "Stash" */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
         }
         .link-card {
             background: var(--card-bg);
-            border: 1px solid #dce3de;
-            padding: 25px 10px;
+            border: 1px solid var(--mask-gray);
+            padding: 30px 15px;
             text-align: center;
-            border-radius: 16px;
+            border-radius: 20px;
             text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            color: var(--fur-silver);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-            border-color: var(--accent-soft);
+            background: var(--mask-gray);
+            transform: scale(1.05) rotate(1deg);
+            border-color: var(--trash-blue);
+            color: white;
         }
         .link-card i, .link-card img {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            color: var(--accent-main);
+            color: var(--trash-blue);
         }
-        .link-card span { font-weight: 500; font-size: 0.9rem; }
+        .link-card span { font-weight: bold; text-transform: uppercase; font-size: 0.85rem; }
 
-        /* Custom Colors */
-        .keep-card i { color: var(--keep-yellow); }
-        .keep-card:hover { border-color: var(--keep-yellow); }
+        .keep-card:hover { border-color: var(--pizza-gold); }
+        .keep-card i { color: var(--pizza-gold); }
     </style>
 </head>
 <body>
 
     <div id="weather-widget">
-        <i class="fas fa-mountain"></i>
+        <i class="fas fa-paw"></i>
         <div id="weather-temp">--°F</div>
-        <div id="weather-desc">Baker City, OR</div>
+        <div id="weather-desc">Baker City Ops</div>
     </div>
 
     <header>
-        <h1>Hay3mak3r's Haven</h1>
+        <h1>Hay3mak3r's Stash</h1>
     </header>
 
     <div class="search-container">
         <form action="https://www.google.com/search" method="GET" class="search-form">
-            <input type="text" name="q" placeholder="Search Google..." required autofocus>
+            <input type="text" name="q" placeholder="Rummage through the web..." required autofocus>
             <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
         </form>
     </div>
 
     <div id="bible-verse-container">
-        <div id="bible-text">Loading daily inspiration...</div>
+        <div id="bible-text">Loading word...</div>
         <div id="bible-reference"></div>
     </div>
 
     <div class="links-grid">
         <a href="https://keep.google.com" target="_blank" class="link-card keep-card">
             <i class="fas fa-lightbulb"></i>
-            <span>Google Keep</span>
+            <span>Shiny Things (Keep)</span>
         </a>
 
         <a href="https://loansphereservicingdigital.bkiconnect.com/planetservicing/#/dashboard" target="_blank" class="link-card">
-            <i class="fas fa-house-user"></i>
-            <span>Planet Home Lending</span>
+            <i class="fas fa-dumpster"></i> <span>Planet Servicing</span>
         </a>
 
         <a href="https://p1fcu.messagepay.com/payment/accountlookup" target="_blank" class="link-card">
-            <i class="fas fa-credit-card"></i>
+            <i class="fas fa-vault"></i>
             <span>P1FCU Payment</span>
         </a>
 
         <a href="https://aistudio.google.com/apps" target="_blank" class="link-card">
-            <i class="fas fa-microchip"></i>
+            <i class="fas fa-brain"></i>
             <span>AI Studio</span>
         </a>
 
         <a href="https://www.pokemon-zone.com" target="_blank" class="link-card">
             <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64" 
-                 style="width: 35px; height: 35px;" 
+                 style="width: 40px; height: 40px;" 
                  onerror="this.src='https://icons.duckduckgo.com/ip3/www.pokemon-zone.com.ico'">
             <span>Pokemon Zone</span>
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0YdY_1hfmDUAlRqUB--3NTCAaQhIzsf2JPEBVrt2WtvV4Gg/viewform" target="_blank" class="link-card">
-            <i class="fas fa-clipboard-list"></i>
-            <span>Prompt Library</span>
+            <i class="fas fa-file-signature"></i>
+            <span>Feedback Form</span>
         </a>
     </div>
 
     <script>
-        // Weather Logic for Baker City
         const LAT = 44.7749;
         const LON = -117.8344;
+        
         function fetchWeather() {
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&temperature_unit=fahrenheit`)
                 .then(res => res.json())
                 .then(data => {
-                    const temp = Math.round(data.current_weather.temperature);
-                    document.getElementById('weather-temp').innerText = `${temp}°F`;
+                    document.getElementById('weather-temp').innerText = `${Math.round(data.current_weather.temperature)}°F`;
                 })
                 .catch(() => { document.getElementById('weather-temp').innerText = "ERR"; });
         }
 
-        // Bible Verse Logic (NLT)
         function fetchBibleVerse() {
             fetch("https://beta.ourmanna.com/api/v1/get/?format=json&order=daily&version=nlt")
-                .then(response => response.json())
+                .then(res => res.json())
                 .then(data => {
                     document.getElementById('bible-text').innerText = `"${data.verse.details.text}"`;
                     document.getElementById('bible-reference').innerText = data.verse.details.reference + " (NLT)";
                 })
-                .catch(err => {
+                .catch(() => {
                     document.getElementById('bible-text').innerText = "Your word is a lamp to guide my feet and a light for my path.";
                     document.getElementById('bible-reference').innerText = "Psalm 119:105 (NLT)";
                 });
         }
 
-        // Run functions on load
         fetchWeather();
         fetchBibleVerse();
     </script>
