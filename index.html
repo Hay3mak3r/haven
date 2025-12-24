@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hay3mak3r's Trash Panda Haven</title>
+    <title>Hay3mak3r's Stash</title>
     
     <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99d.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Trash Panda Color Palette */
-            --bg-night: #1a1a1a;        /* Deep Midnight */
-            --mask-gray: #333333;       /* Raccoon Mask Gray */
-            --fur-silver: #d1d1d1;      /* Light Fur Gray */
-            --trash-blue: #4a90e2;      /* Recycle Bin Blue */
-            --pizza-gold: #f39c12;      /* Found Pizza Gold */
-            --card-bg: #262626;         /* Soft Dark Card */
+            --bg-night: #0f1110;
+            --mask-gray: #333333;
+            --fur-silver: #d1d1d1;
+            --trash-blue: #4a90e2;
+            --pizza-gold: #f39c12;
+            /* Translucent cards for the glass effect */
+            --card-bg: rgba(38, 38, 38, 0.85); 
             --text-light: #f0f0f0;
         }
 
         body {
             background-color: var(--bg-night);
+            /* Minimal Raccoon Silhouette Background */
+            background-image: linear-gradient(rgba(15, 17, 16, 0.8), rgba(15, 17, 16, 0.8)), 
+                              url('https://images.unsplash.com/photo-1597237154674-1a0d2274cef4?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -33,9 +39,8 @@
             padding: 20px;
         }
 
-        /* Weather Widget - "Night Vision" Style */
         #weather-widget {
-            background: var(--mask-gray);
+            background: rgba(51, 51, 51, 0.9);
             padding: 12px 25px;
             border-radius: 50px;
             margin-bottom: 25px;
@@ -43,38 +48,40 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            backdrop-filter: blur(5px);
         }
+
         #weather-temp { font-size: 1.5rem; font-weight: bold; color: var(--trash-blue); }
-        #weather-desc { font-size: 0.9rem; color: var(--fur-silver); text-transform: uppercase; letter-spacing: 1px; }
 
         header h1 {
             font-size: 2.5rem;
             color: var(--fur-silver);
-            text-shadow: 3px 3px 0px var(--mask-gray);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
             margin: 10px 0 35px 0;
             font-weight: 900;
-            text-transform: italic;
+            letter-spacing: -1px;
         }
 
-        /* Search Bar - Bandit Style */
         .search-container {
             width: 100%;
             max-width: 650px;
             margin-bottom: 35px;
         }
+
         .search-form {
             display: flex;
             background: var(--card-bg);
             padding: 8px;
             border-radius: 15px;
             border: 2px solid var(--mask-gray);
+            backdrop-filter: blur(10px);
             transition: 0.3s;
         }
+
         .search-form:focus-within {
             border-color: var(--pizza-gold);
-            box-shadow: 0 0 20px rgba(243, 156, 18, 0.2);
         }
+
         input[type="text"] {
             flex: 1;
             background: transparent;
@@ -84,6 +91,7 @@
             padding: 12px 20px;
             font-size: 1.2rem;
         }
+
         .search-btn {
             background: var(--pizza-gold);
             border: none;
@@ -92,66 +100,56 @@
             height: 50px;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 1.2rem;
         }
 
-        /* Bible Verse - "Moonlight Reflection" */
         #bible-verse-container {
             width: 100%;
             max-width: 650px;
             margin-bottom: 45px;
             text-align: center;
             padding: 30px;
-            background: linear-gradient(145deg, #2c2c2c, #1e1e1e);
+            background: var(--card-bg);
             border-radius: 20px;
             border-left: 5px solid var(--pizza-gold);
-            box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
-        }
-        #bible-text {
-            font-size: 1.2rem;
-            color: var(--fur-silver);
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-        #bible-reference {
-            font-weight: bold;
-            color: var(--pizza-gold);
-            letter-spacing: 2px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Link Cards - The "Stash" */
+        #bible-text { font-size: 1.2rem; line-height: 1.7; margin-bottom: 15px; font-style: italic; }
+        #bible-reference { font-weight: bold; color: var(--pizza-gold); }
+
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 25px;
+            gap: 20px;
             width: 100%;
             max-width: 950px;
         }
+
         .link-card {
             background: var(--card-bg);
-            border: 1px solid var(--mask-gray);
+            border: 1px solid rgba(209, 209, 209, 0.1);
             padding: 30px 15px;
             text-align: center;
             border-radius: 20px;
             text-decoration: none;
             color: var(--fur-silver);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
         }
+
         .link-card:hover {
-            background: var(--mask-gray);
-            transform: scale(1.05) rotate(1deg);
+            transform: translateY(-5px);
+            background: rgba(74, 144, 226, 0.1);
             border-color: var(--trash-blue);
             color: white;
         }
+
         .link-card i, .link-card img {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--trash-blue);
         }
-        .link-card span { font-weight: bold; text-transform: uppercase; font-size: 0.85rem; }
-
-        .keep-card:hover { border-color: var(--pizza-gold); }
-        .keep-card i { color: var(--pizza-gold); }
     </style>
 </head>
 <body>
@@ -179,35 +177,29 @@
     </div>
 
     <div class="links-grid">
-        <a href="https://keep.google.com" target="_blank" class="link-card keep-card">
-            <i class="fas fa-lightbulb"></i>
-            <span>Shiny Things</span>
+        <a href="https://keep.google.com" target="_blank" class="link-card">
+            <i class="fas fa-lightbulb" style="color: var(--pizza-gold);"></i>
+            <span>Shiny Things (Keep)</span>
         </a>
-
         <a href="https://loansphereservicingdigital.bkiconnect.com/planetservicing/#/dashboard" target="_blank" class="link-card">
-            <i class="fas fa-dumpster"></i> <span>Planet Home Lending</span>
+            <i class="fas fa-dumpster"></i>
+            <span>Planet Servicing</span>
         </a>
-
         <a href="https://p1fcu.messagepay.com/payment/accountlookup" target="_blank" class="link-card">
             <i class="fas fa-vault"></i>
             <span>P1FCU Payment</span>
         </a>
-
         <a href="https://aistudio.google.com/apps" target="_blank" class="link-card">
             <i class="fas fa-brain"></i>
             <span>AI Studio</span>
         </a>
-
         <a href="https://www.pokemon-zone.com" target="_blank" class="link-card">
-            <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64" 
-                 style="width: 40px; height: 40px;" 
-                 onerror="this.src='https://icons.duckduckgo.com/ip3/www.pokemon-zone.com.ico'">
+            <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64" style="width: 40px; height: 40px;">
             <span>Pokemon Zone</span>
         </a>
-
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0YdY_1hfmDUAlRqUB--3NTCAaQhIzsf2JPEBVrt2WtvV4Gg/viewform" target="_blank" class="link-card">
             <i class="fas fa-file-signature"></i>
-            <span>Prompt Library</span>
+            <span>Feedback Form</span>
         </a>
     </div>
 
