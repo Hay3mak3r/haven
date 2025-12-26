@@ -10,76 +10,75 @@
     
     <style>
         :root {
-            --bg-night: #0f1110;
-            --mask-gray: #333333;
-            --fur-silver: #d1d1d1;
-            --trash-blue: #4a90e2;
-            --pizza-gold: #f39c12;
-            /* Translucent cards for the glass effect */
-            --card-bg: rgba(38, 38, 38, 0.85); 
-            --text-light: #f0f0f0;
+            --bg-night: #0a0c0b;
+            --mask-gray: #2d2d2d;
+            --fur-silver: #e0e0e0;
+            --trash-blue: #3498db;
+            --pizza-gold: #f1c40f;
+            --card-bg: rgba(25, 25, 25, 0.8); 
+            --text-light: #ffffff;
         }
 
         body {
             background-color: var(--bg-night);
-            /* Minimal Raccoon Silhouette Background */
-            background-image: linear-gradient(rgba(15, 17, 16, 0.8), rgba(15, 17, 16, 0.8)), 
-                              url('https://images.unsplash.com/photo-1597237154674-1a0d2274cef4?auto=format&fit=crop&q=80&w=1920');
+            /* Dark Forest Background */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80&w=1920');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
+        }
+
+        /* The Raccoon "Stash" Icon (CSS Silouhette) */
+        .raccoon-logo {
+            font-size: 4rem;
+            color: var(--fur-silver);
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px var(--trash-blue));
         }
 
         #weather-widget {
-            background: rgba(51, 51, 51, 0.9);
-            padding: 12px 25px;
-            border-radius: 50px;
-            margin-bottom: 25px;
-            border: 2px solid var(--trash-blue);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            border: 1px solid var(--trash-blue);
             display: flex;
             align-items: center;
-            gap: 15px;
-            backdrop-filter: blur(5px);
+            gap: 12px;
+            backdrop-filter: blur(8px);
         }
 
-        #weather-temp { font-size: 1.5rem; font-weight: bold; color: var(--trash-blue); }
-
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--fur-silver);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            margin: 10px 0 35px 0;
-            font-weight: 900;
-            letter-spacing: -1px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .search-container {
             width: 100%;
-            max-width: 650px;
-            margin-bottom: 35px;
+            max-width: 600px;
+            margin-bottom: 30px;
         }
 
         .search-form {
             display: flex;
-            background: var(--card-bg);
-            padding: 8px;
-            border-radius: 15px;
-            border: 2px solid var(--mask-gray);
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-        }
-
-        .search-form:focus-within {
-            border-color: var(--pizza-gold);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid var(--mask-gray);
+            backdrop-filter: blur(15px);
         }
 
         input[type="text"] {
@@ -88,118 +87,117 @@
             border: none;
             outline: none;
             color: white;
-            padding: 12px 20px;
-            font-size: 1.2rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
         }
 
         .search-btn {
-            background: var(--pizza-gold);
+            background: var(--trash-blue);
             border: none;
-            color: var(--bg-night);
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             cursor: pointer;
         }
 
         #bible-verse-container {
             width: 100%;
-            max-width: 650px;
-            margin-bottom: 45px;
+            max-width: 600px;
+            margin-bottom: 40px;
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             background: var(--card-bg);
-            border-radius: 20px;
-            border-left: 5px solid var(--pizza-gold);
+            border-radius: 15px;
+            border-top: 3px solid var(--pizza-gold);
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        #bible-text { font-size: 1.2rem; line-height: 1.7; margin-bottom: 15px; font-style: italic; }
-        #bible-reference { font-weight: bold; color: var(--pizza-gold); }
+        #bible-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 10px; color: #ccc; }
+        #bible-reference { font-weight: bold; color: var(--pizza-gold); font-size: 0.9rem; }
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
             width: 100%;
-            max-width: 950px;
+            max-width: 900px;
         }
 
         .link-card {
             background: var(--card-bg);
-            border: 1px solid rgba(209, 209, 209, 0.1);
-            padding: 30px 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 25px 15px;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 15px;
             text-decoration: none;
             color: var(--fur-silver);
             backdrop-filter: blur(10px);
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .link-card:hover {
-            transform: translateY(-5px);
-            background: rgba(74, 144, 226, 0.1);
-            border-color: var(--trash-blue);
-            color: white;
+            background: rgba(255,255,255,0.1);
+            border-color: var(--pizza-gold);
+            transform: translateY(-3px);
         }
 
-        .link-card i, .link-card img {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--trash-blue);
-        }
+        .link-card i { font-size: 2rem; margin-bottom: 12px; color: var(--trash-blue); }
+        .link-card img { width: 40px; height: 40px; margin-bottom: 12px; border-radius: 8px; }
+        .link-card span { display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
+    <div class="raccoon-logo">
+        <i class="fas fa-mask"></i> </div>
+
     <div id="weather-widget">
-        <i class="fas fa-paw"></i>
+        <i class="fas fa-moon" style="color: var(--pizza-gold);"></i>
         <div id="weather-temp">--°F</div>
-        <div id="weather-desc">Baker City Ops</div>
+        <div id="weather-desc" style="color: #888; font-size: 0.8rem;">Baker City Ops</div>
     </div>
 
     <header>
-        <h1>Hay3mak3r's Stash</h1>
+        <h1>The Bandit's Stash</h1>
     </header>
 
     <div class="search-container">
         <form action="https://www.google.com/search" method="GET" class="search-form">
-            <input type="text" name="q" placeholder="Rummage through the web..." required autofocus>
+            <input type="text" name="q" placeholder="Rummage for data..." required autofocus>
             <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
         </form>
     </div>
 
     <div id="bible-verse-container">
-        <div id="bible-text">Loading word...</div>
+        <div id="bible-text">Loading the Word...</div>
         <div id="bible-reference"></div>
     </div>
 
     <div class="links-grid">
         <a href="https://keep.google.com" target="_blank" class="link-card">
             <i class="fas fa-lightbulb" style="color: var(--pizza-gold);"></i>
-            <span>Shiny Things (Keep)</span>
+            <span>Shiny Things</span>
         </a>
         <a href="https://loansphereservicingdigital.bkiconnect.com/planetservicing/#/dashboard" target="_blank" class="link-card">
             <i class="fas fa-dumpster"></i>
-            <span>Planet Servicing</span>
+            <span>Planet Home Lending</span>
         </a>
         <a href="https://p1fcu.messagepay.com/payment/accountlookup" target="_blank" class="link-card">
             <i class="fas fa-vault"></i>
             <span>P1FCU Payment</span>
         </a>
         <a href="https://aistudio.google.com/apps" target="_blank" class="link-card">
-            <i class="fas fa-brain"></i>
+            <i class="fas fa-robot"></i>
             <span>AI Studio</span>
         </a>
         <a href="https://www.pokemon-zone.com" target="_blank" class="link-card">
-            <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64" style="width: 40px; height: 40px;">
+            <img src="https://www.google.com/s2/favicons?domain=www.pokemon-zone.com&sz=64">
             <span>Pokemon Zone</span>
         </a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0YdY_1hfmDUAlRqUB--3NTCAaQhIzsf2JPEBVrt2WtvV4Gg/viewform" target="_blank" class="link-card">
-            <i class="fas fa-file-signature"></i>
-            <span>Feedback Form</span>
+            <i class="fas fa-file-alt"></i>
+            <span>Prompt Library</span>
         </a>
     </div>
 
